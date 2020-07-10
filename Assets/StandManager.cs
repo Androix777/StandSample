@@ -30,7 +30,10 @@ public class StandManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetMouseButton(0)) 
+        {
+            currentModel.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+        }
     }
     private void AddElement(Model model, int i)
     {
