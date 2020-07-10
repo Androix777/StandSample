@@ -8,12 +8,12 @@ public class StandManager : MonoBehaviour
     [System.Serializable]
     public class Model
     {
-        public GameObject eventType;
+        public GameObject model;
         public string name;
         public string note;
     }
     public Model [] models;
-    public GameObject canvas, element;
+    public GameObject canvas, element, currentModel;
     private Transform content;
     private Text note;
     void Start()
@@ -43,5 +43,7 @@ public class StandManager : MonoBehaviour
     private void ShowModel(int i)
     {
         note.text = models[i].note;
+        Destroy(currentModel);
+        currentModel = Instantiate(models[i].model);
     }
 }
