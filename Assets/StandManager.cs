@@ -37,11 +37,11 @@ public class StandManager : MonoBehaviour
         Transform newElementTransform = Instantiate(element).transform;
         newElementTransform.SetParent(content, false);
         newElementTransform.GetChild(0).gameObject.GetComponent<Text>().text = model.name;
-        newElementTransform.GetComponent<Button>().onClick.AddListener(delegate{AddElement(i);});
+        newElementTransform.GetComponent<Button>().onClick.AddListener(delegate{ShowModel(i);});
     }
 
-    private void AddElement(int i)
+    private void ShowModel(int i)
     {
-        note.text = models[i].name;
+        note.text = models[i].note;
     }
 }
