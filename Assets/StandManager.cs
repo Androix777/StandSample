@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StandManager : MonoBehaviour
 {
+    public float rotationSpeed = 2;
     [System.Serializable]
     public class Model
     {
@@ -32,7 +33,7 @@ public class StandManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0)) 
         {
-            currentModel.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+            currentModel.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotationSpeed, 0));
         }
     }
     private void AddElement(Model model, int i)
