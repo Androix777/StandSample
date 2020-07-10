@@ -18,11 +18,13 @@ public class StandManager : MonoBehaviour
     private Text note;
     void Start()
     {
+        int i = 0;
         content = canvas.transform.Find("LeftPanel").Find("Scroll").Find("Content");
         note = canvas.transform.Find("DownPanel").GetChild(0).GetComponent<Text>();
         foreach(Model model in models)
         {
-            AddElement(model);
+            AddElement(model, i);
+            i++;
         }
     }
 
@@ -30,10 +32,16 @@ public class StandManager : MonoBehaviour
     {
         
     }
-    private void AddElement(Model model)
+    private void AddElement(Model model, int i)
     {
         Transform newElementTransform = Instantiate(element).transform;
         newElementTransform.SetParent(content, false);
         newElementTransform.GetChild(0).gameObject.GetComponent<Text>().text = model.name;
+        newElementTransform.GetComponent<Button>().onClick.AddListener(delegate{AddElement(i);});
+    }
+
+    private void AddElement(int i)
+    {
+        note.text = models[i].name;
     }
 }
