@@ -333,6 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353972167979376}
+  - component: {fileID: 4424888706329539348}
   m_Layer: 0
   m_Name: Bus_1
   m_TagString: Untagged
@@ -356,6 +357,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &4424888706329539348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959030373088092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2cc3597eee2ce46a4747027311ec86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelName: "\u0410\u0432\u0442\u043E\u0431\u0443\u0441 1"
+  modelNote: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u0430
+    1"
+  modelParts:
+  - modelPart: {fileID: 1695501576693806}
+    name: "\u0410\u0432\u0442\u043E\u0431\u0443\u0441\u043D\u044B\u0439 \u043A\u043E\u0440\u043F\u0443\u0441"
+    note: "\u0410 \u044D\u0442\u043E \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435
+      \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u043D\u043E\u0433\u043E \u043A\u043E\u0440\u043F\u0443\u0441\u0430"
+  - modelPart: {fileID: 2496885010831727049}
+    name: "\u0410\u0432\u0442\u043E\u0431\u0443\u0441\u043D\u044B\u0435 \u043A\u043E\u043B\u0435\u0441\u0430"
+    note: "\u0410 \u044D\u0442\u043E \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435
+      \u0430\u0432\u0442\u043E\u0431\u0443\u0441\u043D\u044B\u0445 \u043A\u043E\u043B\u0435\u0441"
 --- !u!1 &1984030507710860
 GameObject:
   m_ObjectHideFlags: 0
