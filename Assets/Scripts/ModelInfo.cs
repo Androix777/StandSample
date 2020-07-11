@@ -14,6 +14,8 @@ public class ModelInfo : MonoBehaviour
 {
     public string modelName;
     public string modelNote;
+    public Animator modelAnimator;
+    public string animationName;
     public ModelPart [] modelParts;
     void Start()
     {

@@ -8,15 +8,20 @@ public class StandManager : MonoBehaviour
     public float rotationSpeed = 2;
     public GameObject [] models;
     public GameObject canvas, element, currentModel;
-    private Transform leftContent, rightContent;
-    private Text note;
+    private Transform leftContent, rightContent, animationButtonTransform;
+    private Button animationButton;
+    private Text note, animationName;
     private ModelInfo[] modelInfo;
     void Start()
     {
         modelInfo = new ModelInfo [models.Length];
         leftContent = canvas.transform.Find("LeftPanel").Find("Scroll").Find("Content");
         rightContent = canvas.transform.Find("RightPanel").Find("Scroll").Find("Content");
+        animationButtonTransform = canvas.transform.Find("AnimationButton");
         note = canvas.transform.Find("DownPanel").GetChild(0).GetComponent<Text>();
+        animationName = animationButtonTransform.GetChild(0).GetComponent<Text>();
+        animationButton = animationButtonTransform.gameObject.GetComponent<Button>();
+        animationButton.onClick.AddListener(delegate{PlayAnimation();});
         int i = 0;
         foreach(GameObject model in models)
         {
@@ -48,6 +53,12 @@ public class StandManager : MonoBehaviour
         currentModel = Instantiate(models[i]);
         note.text = modelInfo[i].modelNote;
 
+        if(modelInfo[i].modelAnimator)
+        {
+            animationButton.interactable = true;
+            animationName.text = modelInfo[i].animationName;
+        }
+
         foreach (Transform child in rightContent)
         {
             Destroy(child.gameObject);
@@ -67,6 +78,8 @@ public class StandManager : MonoBehaviour
 
     private void ShowPart(int i, int j)
     {
+        animationButton.interactable = false;
+        animationName.text = "";
         foreach(Transform child in currentModel.transform)
         {
             if (child.gameObject.name == modelInfo[i].modelParts[j].modelPart.name)
@@ -79,5 +92,13 @@ public class StandManager : MonoBehaviour
             }
         }
         note.text = modelInfo[i].modelParts[j].note;
+    }
+
+    private void PlayAnimation()
+    {
+        Animator animator = currentModel.GetComponent<ModelInfo>().modelAnimator;
+        Debug.Log(animator.enabled);
+        animator.enabled = !animator.enabled;
+        Debug.Log(animator.enabled);
     }
 }

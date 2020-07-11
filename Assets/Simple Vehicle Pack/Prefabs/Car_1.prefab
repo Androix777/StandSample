@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 33314167155619540}
   - component: {fileID: 23942942443588636}
   m_Layer: 0
-  m_Name: Object012
+  m_Name: Wheel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4870167790249810}
   - component: {fileID: 7777966157322735586}
+  - component: {fileID: 4658981737171760489}
   m_Layer: 0
   m_Name: Car_1
   m_TagString: Untagged
@@ -210,6 +211,9 @@ MonoBehaviour:
   modelName: "\u0410\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C 1"
   modelNote: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044F
     1"
+  modelAnimator: {fileID: 4658981737171760489}
+  animationName: "\u0412\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u043A\u043E\u043B\u0435\u0441
+    \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044F"
   modelParts:
   - modelPart: {fileID: 1071491981225826}
     name: "\u0410\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C\u043D\u044B\u0439
@@ -221,6 +225,25 @@ MonoBehaviour:
       \u043A\u043E\u043B\u0435\u0441\u0430"
     note: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C\u043D\u044B\u0445
       \u043A\u043E\u043B\u0435\u0441"
+--- !u!95 &4658981737171760489
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646981259178978}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6cc8d030a487a94c84323fb7c54f3e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1664593040851034
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +256,7 @@ GameObject:
   - component: {fileID: 33854244447227960}
   - component: {fileID: 23541928347256236}
   m_Layer: 0
-  m_Name: Object014
+  m_Name: Wheel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +337,7 @@ GameObject:
   - component: {fileID: 33610123856757994}
   - component: {fileID: 23636691086772800}
   m_Layer: 0
-  m_Name: Object013
+  m_Name: Wheel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +418,7 @@ GameObject:
   - component: {fileID: 33415225244959392}
   - component: {fileID: 23416682001265046}
   m_Layer: 0
-  m_Name: Object011
+  m_Name: Wheel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
