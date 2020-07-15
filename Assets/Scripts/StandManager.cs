@@ -79,6 +79,7 @@ public class StandManager : MonoBehaviour
     private void ShowPart(int i, int j)
     {
         animationButton.interactable = false;
+        PlayAnimation(true);
         animationName.text = "";
         foreach(Transform child in currentModel.transform)
         {
@@ -94,11 +95,16 @@ public class StandManager : MonoBehaviour
         note.text = modelInfo[i].modelParts[j].note;
     }
 
-    private void PlayAnimation()
+    private void PlayAnimation(bool off = false)
     {
         Animator animator = currentModel.GetComponent<ModelInfo>().modelAnimator;
-        Debug.Log(animator.enabled);
-        animator.enabled = !animator.enabled;
-        Debug.Log(animator.enabled);
+        if(off)
+        {
+            animator.enabled = false;
+        }
+        else
+        {
+            animator.enabled = !animator.enabled;
+        }
     }
 }
