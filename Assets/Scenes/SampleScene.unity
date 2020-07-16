@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -974,6 +975,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40.579, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9fee9877d8d9747bdf2a8925fa254d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.2
 --- !u!1 &1051778555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,9 +1532,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1684572463}
   - component: {fileID: 1684572462}
-  - component: {fileID: 1684572464}
   m_Layer: 0
-  m_Name: ScriptHolder
+  m_Name: Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1543,7 +1556,7 @@ MonoBehaviour:
   - {fileID: 1959030373088092, guid: fc4245223e4122142bb14239d44230ef, type: 3}
   - {fileID: 1646981259178978, guid: 0ae65270c30153049ab49eb3ebf070d6, type: 3}
   canvas: {fileID: 1425432285}
-  element: {fileID: 1395118778010024605, guid: 6db86cb59b17c9748a61a0364ad9fede, type: 3}
+  buttonElement: {fileID: 1395118778010024605, guid: 6db86cb59b17c9748a61a0364ad9fede, type: 3}
   currentModel: {fileID: 1363192931}
 --- !u!4 &1684572463
 Transform:
@@ -1559,17 +1572,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1684572464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684572461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9fee9877d8d9747bdf2a8925fa254d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.2
-  mainCameraTransform: {fileID: 963194228}

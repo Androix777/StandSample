@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public float moveSpeed = .2f;
-    public Transform mainCameraTransform;
+    private Transform mainCameraTransform;
     void Start()
     {
-
+        mainCameraTransform = gameObject.transform;
     }
 
     void Update()

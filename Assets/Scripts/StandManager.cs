@@ -7,46 +7,52 @@ public class StandManager : MonoBehaviour
 {
     public float rotationSpeed = 2;
     public GameObject [] models;
-    public GameObject canvas, element, currentModel;
-    private Transform leftContent, rightContent, animationButtonTransform;
+    public GameObject canvas, buttonElement, currentModel;
+    private Transform leftContentTransform, rightContentTransform, animationButtonTransform;
     private Button animationButton;
     private Text note, animationName;
     private ModelInfo[] modelInfo;
     void Start()
     {
+        //Кэширование
         modelInfo = new ModelInfo [models.Length];
-        leftContent = canvas.transform.Find("LeftPanel").Find("Scroll").Find("Content");
-        rightContent = canvas.transform.Find("RightPanel").Find("Scroll").Find("Content");
+        leftContentTransform = canvas.transform.Find("LeftPanel").Find("Scroll").Find("Content");
+        rightContentTransform = canvas.transform.Find("RightPanel").Find("Scroll").Find("Content");
         animationButtonTransform = canvas.transform.Find("AnimationButton");
         note = canvas.transform.Find("DownPanel").GetChild(0).GetComponent<Text>();
         animationName = animationButtonTransform.GetChild(0).GetComponent<Text>();
         animationButton = animationButtonTransform.gameObject.GetComponent<Button>();
         animationButton.onClick.AddListener(delegate{PlayAnimation();});
         int i = 0;
+
+        //Добавление кнопок моделей
         foreach(GameObject model in models)
         {
-            AddElement(model, i);
+            AddButtonElement(model, i);
             i++;
         }
     }
 
     void Update()
     {
+        //Вращение модели
         if (Input.GetMouseButton(0)) 
         {
             currentModel.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotationSpeed, 0));
         }
     }
 
-    private void AddElement(GameObject model, int i)
+    //Добавить кнопку модели
+    private void AddButtonElement(GameObject model, int i)
     {
         modelInfo[i] = model.transform.GetComponent<ModelInfo>();
-        Transform newElementTransform = Instantiate(element).transform;
-        newElementTransform.SetParent(leftContent, false);
+        Transform newElementTransform = Instantiate(buttonElement).transform;
+        newElementTransform.SetParent(leftContentTransform, false);
         newElementTransform.GetChild(0).gameObject.GetComponent<Text>().text = modelInfo[i].modelName;
         newElementTransform.GetComponent<Button>().onClick.AddListener(delegate{ShowModel(i);});
     }
 
+    //Отобразить модель
     private void ShowModel(int i)
     {
         Destroy(currentModel);
@@ -59,16 +65,16 @@ public class StandManager : MonoBehaviour
             animationName.text = modelInfo[i].animationName;
         }
 
-        foreach (Transform child in rightContent)
+        //Добавить кнопки показа частей модели
+        foreach (Transform child in rightContentTransform)
         {
             Destroy(child.gameObject);
         }
-
         int j = 0;
         foreach (ModelPart part in modelInfo[i].modelParts)
         {
-            Transform newElementTransform = Instantiate(element).transform;
-            newElementTransform.SetParent(rightContent, false);
+            Transform newElementTransform = Instantiate(buttonElement).transform;
+            newElementTransform.SetParent(rightContentTransform, false);
             newElementTransform.GetChild(0).gameObject.GetComponent<Text>().text = part.name;
             int j2 = j;
             newElementTransform.GetComponent<Button>().onClick.AddListener(delegate{ShowPart(i, j2);});
@@ -76,6 +82,7 @@ public class StandManager : MonoBehaviour
         }
     }
 
+    //Отобразить часть модели
     private void ShowPart(int i, int j)
     {
         animationButton.interactable = false;
@@ -95,6 +102,7 @@ public class StandManager : MonoBehaviour
         note.text = modelInfo[i].modelParts[j].note;
     }
 
+    //Включить, выключить анимцию
     private void PlayAnimation(bool off = false)
     {
         Animator animator = currentModel.GetComponent<ModelInfo>().modelAnimator;
